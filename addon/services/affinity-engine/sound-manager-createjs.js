@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { MultitonIdsMixin } from 'affinity-engine';
+import createjs from 'ember-createjs';
 import { BusSubscriberMixin } from 'ember-message-bus';
 import multiton from 'ember-multiton-service';
 
@@ -11,7 +11,7 @@ const {
   set
 } = Ember;
 
-export default Service.extend(BusSubscriberMixin, MultitonIdsMixin, {
+export default Service.extend(BusSubscriberMixin, {
   config: multiton('affinity-engine/config', 'engineId'),
 
   idMap: computed(() => Ember.Object.create()),
