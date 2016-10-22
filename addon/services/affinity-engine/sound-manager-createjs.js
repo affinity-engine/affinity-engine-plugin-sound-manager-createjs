@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import createjs from 'ember-createjs';
-import { BusSubscriberMixin } from 'ember-message-bus';
 import multiton from 'ember-multiton-service';
 
 const {
@@ -11,17 +10,16 @@ const {
   set
 } = Ember;
 
-export default Service.extend(BusSubscriberMixin, {
+export default Service.extend({
   config: multiton('affinity-engine/config', 'engineId'),
+  eBus: multiton('message-bus', 'engineId'),
 
   idMap: computed(() => Ember.Object.create()),
 
   init(...args) {
     this._super(...args);
 
-    const engineId = get(this, 'engineId');
-
-    this.on(`ae:${engineId}:refreshingFromState`, this, this.clearSounds);
+    get(this, 'eBus').subscribe('refreshingFromState', this, this.clearSounds);
   },
 
   findOrCreateInstance(soundId, instanceId = 0) {
