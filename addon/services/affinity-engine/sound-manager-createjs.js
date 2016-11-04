@@ -11,7 +11,6 @@ const {
 } = Ember;
 
 export default Service.extend({
-  config: multiton('affinity-engine/config', 'engineId'),
   eBus: multiton('message-bus', 'engineId'),
 
   idMap: computed(() => Ember.Object.create()),
