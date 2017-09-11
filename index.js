@@ -1,6 +1,6 @@
-/* jshint node: true */
+/* eslint-env node */
 'use strict';
 
 module.exports = {
-  name: 'affinity-engine-sound-manager-createjs'
+  name: 'affinity-engine-plugin-sound-manager-createjs'
 };

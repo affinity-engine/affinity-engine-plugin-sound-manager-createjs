@@ -1,1 +1,1 @@
-export { default } from 'affinity-engine-sound-manager-createjs/services/affinity-engine/sound-manager-createjs';
+export { default } from 'affinity-engine-plugin-sound-manager-createjs/services/affinity-engine/sound-manager-createjs';
