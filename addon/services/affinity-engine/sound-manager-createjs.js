@@ -19,6 +19,7 @@ export default Service.extend({
     this._super(...args);
 
     get(this, 'eBus').subscribe('refreshingFromState', this, this.clearSounds);
+    get(this, 'eBus').subscribe('engineWillBeDestroyed', this, this.clearSounds);
   },
 
   findOrCreateInstance(soundId, instanceId = 0) {
